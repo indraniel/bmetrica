@@ -127,13 +127,13 @@ class JobStats(object):
         for id in job_ids:
             if id.isdigit():
                 metrics = self.query(int(id))
-                stats.extend(metrics)
+                if metrics: stats.extend(metrics)
             elif id == '-':
                 for line in sys.stdin:
                     item = line.rstrip()
                     if item.isdigit():
                         metrics = self.query(int(item))
-                        stats.extend(metrics)
+                        if metrics: stats.extend(metrics)
                     else:
                         print("[WARN] SKIPPING '{}' -- NOT LSF ID".format(id))
             else:
@@ -147,6 +147,10 @@ class JobStats(object):
         return metrics
 
     def display(self, stats):
+        if not stats:
+            print("Found no LSF job stats", file=sys.stderr)
+            sys.exit(0)
+
         if self.melt:
             self.display_melt(stats)
         elif self.json:

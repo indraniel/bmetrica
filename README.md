@@ -24,7 +24,7 @@ You'll need to set the location of the MySQL/Cacti database resource via a shell
 
     export BMETRICA_DSN="mysql://<user>:<password>@<host>:<port>/<database>"
     
-In most LSF/Cacti installations the default `<database>` name is usually called `cacti`.  Once `BMETRICA_DSN` is set, you can proceed to use the `bmetrica` command, or python API.
+Once `BMETRICA_DSN` is set, you can proceed to use the `bmetrica` command, or python API.
 
 ## Command Line
 

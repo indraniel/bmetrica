@@ -23,7 +23,7 @@ setup(
     dependency_links=[],
     install_requires=[
         'Jinja2>=2.4',
-        'click>=6.7',
+        'click>=6.6',
         'PyMySQL>=0.7.10'
     ],
     entry_points='''

@@ -20,7 +20,7 @@ A CLI interface to IBM's [Spectrum LSF][0] (formerly [Platform LSF][1]) backend 
 
 # Usage
 
-You'll need to specify the location of the MySQL/Cacti data source (or database) via a shell environment variable called `BMETRICA_DSN` structured in a [RFC-1738][4] formatted URL.  For example in bash:
+You'll need to set the location of the MySQL/Cacti database resource via a shell environment variable, called `BMETRICA_DSN`, specified in a [RFC-1738][4] formatted URL.  For example in bash:
 
     export BMETRICA_DSN="mysql://<user>:<password>@<host>:<port>/<database>"
     

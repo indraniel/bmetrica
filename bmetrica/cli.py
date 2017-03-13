@@ -15,7 +15,7 @@ def cli():
     # http://newbebweb.blogspot.com/2012/02/python-head-ioerror-errno-32-broken.html
     signal.signal(signal.SIGPIPE, signal.SIG_DFL)
 
-@cli.command(short_help="Job information on LSF Job ID(s)")
+@cli.command(short_help="Job statistics on submitted LSF Job ID(s)")
 @click.option('--all', '-a', is_flag=True, default=False,
               help='show all historical LSF job id statistics')
 @click.option('--debug', '-d', is_flag=True, default=False,

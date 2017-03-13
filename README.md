@@ -1,8 +1,6 @@
 # `bmetrica` _(python-edition)_
 
-A CLI interface to IBM's Platform LSF backend MySQL/Cacti database.
-
-It's another alternative to looking at information from IBM's Platform LSF RTM web interface.
+A CLI interface to IBM's [Spectrum LSF][0] (formerly [Platform LSF][1]) backend [MySQL][3]/[Cacti][4] database.
 
 # Installation
 
@@ -22,13 +20,18 @@ It's another alternative to looking at information from IBM's Platform LSF RTM w
 
 # Usage
 
-You'll need to specify the location of the MySQL/Cacti data source (or database) via a shell environment variable called `BMETRICA_DSN` structured in a [RFC-1738][0] formatted URL.  For example in bash:
+You'll need to specify the location of the MySQL/Cacti data source (or database) via a shell environment variable called `BMETRICA_DSN` structured in a [RFC-1738][4] formatted URL.  For example in bash:
 
-    export BMETRICA_DSN="mysql://<user>:<password>@<host>:<port>/cacti"
+    export BMETRICA_DSN="mysql://<user>:<password>@<host>:<port>/<database>"
     
-Afterwards, you can proceed to use the `bmetrica` command, or python API.
+In most LSF/Cacti installations the default `<database>` name is usually called `cacti`.  Once `BMETRICA_DSN` is set, you can proceed to use the `bmetrica` command, or python API.
 
 ## Command Line
+
+`bmetrica` uses a git-like subcommand interface.  Currently, only the `jobstats` subcommand is available.
+
+    bmetrica --help
+    bmetrica jobstats --help
 
     bmetrica jobstats 1234 5678
     bmetrica jobstats --parse 1234 5678
@@ -89,4 +92,8 @@ metrics
 
 Apache
 
-[0]: https://www.ietf.org/rfc/rfc1738.txt
+[0]: http://www-03.ibm.com/systems/spectrum-computing/products/lsf/
+[1]: https://en.wikipedia.org/wiki/Platform_LSF
+[2]: https://en.wikipedia.org/wiki/MySQL
+[3]: http://www.cacti.net/
+[4]: https://www.ietf.org/rfc/rfc1738.txt

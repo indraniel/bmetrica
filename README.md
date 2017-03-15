@@ -86,6 +86,9 @@ metrics
 #   u'submit_time': datetime.datetime(2017, 3, 12, 13, 15, 47),
 #   u'user': 'me',
 #   u'utime': 0.0}]
+
+# Don't forget to close the connection to the database when you're done
+js.connection.close()
 ```
 
 # LICENSE

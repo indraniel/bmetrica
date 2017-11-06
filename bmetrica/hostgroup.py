@@ -240,11 +240,11 @@ class HGStats(object):
             from grid_table_partitions
             where table_name = "grid_jobs_finished"
             and
-            (min_time > %s and max_time <= %s)
+            (min_time > %s or max_time > %s)
             order by partition desc
         '''
         with self.connection.cursor() as cursor:
-            cursor.execute(sql, (self.start.strftime("%Y-%m-%d %H:%M:%S"), self.end.strftime("%Y-%m-%d %H:%M:%S")))
+            cursor.execute(sql, (self.start.strftime("%Y-%m-%d %H:%M:%S"), self.start.strftime("%Y-%m-%d %H:%M:%S")))
             result = cursor.fetchall()
         sharded_tables = [ (i['fullname'], i['partition']) for i in result ]
         tables.extend(sharded_tables)
